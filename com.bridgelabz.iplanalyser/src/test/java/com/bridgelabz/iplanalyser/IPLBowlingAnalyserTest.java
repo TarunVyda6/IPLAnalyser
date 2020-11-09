@@ -13,21 +13,29 @@ public class IPLBowlingAnalyserTest
 	IPLAnalyser iplAnalyser;
 
 	@Before
-	public void initializer() throws NoSuchFieldException, SecurityException {
+	public void initializer() throws NoSuchFieldException, SecurityException
+	{
 		iplAnalyser = new IPLAnalyser();
 	}
-	
+
 	@Test
 	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingAveragePerson() throws CSVException
 	{
 		List<IPLBowling> bestBowlingAverage = iplAnalyser.sortByBowlingAverage(IPL_BOWLING_CSV_FILE_PATH);
 		assertEquals("Anukul Roy", bestBowlingAverage.get(0).getPlayer());
 	}
-	
+
 	@Test
 	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingStrikeRatePerson() throws CSVException
 	{
 		List<IPLBowling> bestBowlingStrikeRate = iplAnalyser.sortByBowlingStrikeRate(IPL_BOWLING_CSV_FILE_PATH);
 		assertEquals("Alzarri Joseph", bestBowlingStrikeRate.get(0).getPlayer());
+	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingEconomyPerson() throws CSVException
+	{
+		List<IPLBowling> bestBowlingEconomy = iplAnalyser.sortByBowlingEconomy(IPL_BOWLING_CSV_FILE_PATH);
+		assertEquals("Shivam Dube", bestBowlingEconomy.get(0).getPlayer());
 	}
 }
