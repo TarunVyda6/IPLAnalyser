@@ -18,9 +18,16 @@ public class IPLBowlingAnalyserTest
 	}
 	
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnHighestBattingAveragePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingAveragePerson() throws CSVException
 	{
-		List<IPLBowling> BestBowlingAverage = iplAnalyser.sortByBowlingAverage(IPL_BOWLING_CSV_FILE_PATH);
-		assertEquals("Anukul Roy", BestBowlingAverage.get(0).getPlayer());
+		List<IPLBowling> bestBowlingAverage = iplAnalyser.sortByBowlingAverage(IPL_BOWLING_CSV_FILE_PATH);
+		assertEquals("Anukul Roy", bestBowlingAverage.get(0).getPlayer());
+	}
+	
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingStrikeRatePerson() throws CSVException
+	{
+		List<IPLBowling> bestBowlingStrikeRate = iplAnalyser.sortByBowlingStrikeRate(IPL_BOWLING_CSV_FILE_PATH);
+		assertEquals("Alzarri Joseph", bestBowlingStrikeRate.get(0).getPlayer());
 	}
 }

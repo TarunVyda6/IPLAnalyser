@@ -114,15 +114,33 @@ public class IPLAnalyser
 		return iplBattingList;
 	}
 	
+	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on best bowling average
+	 * @throws CSVException
+	 */
 	public List<IPLBowling> sortByBowlingAverage(String iplBowlingCsvFilePath) throws CSVException
 	{
 		checkingForExceptionsAndFetchingBowlingData(iplBowlingCsvFilePath);
 		Collections.sort(iplBowlingList, Comparator.comparing(bowling ->  Double.parseDouble(bowling.getAverage())));
 		return iplBowlingList;
 	}
+	
+	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on best bowling strike rate
+	 * @throws CSVException
+	 */
+	public List<IPLBowling> sortByBowlingStrikeRate(String iplBowlingCsvFilePath) throws CSVException
+	{
+		checkingForExceptionsAndFetchingBowlingData(iplBowlingCsvFilePath);
+		Collections.sort(iplBowlingList, Comparator.comparing(bowling ->  Double.parseDouble(bowling.getStrikeRate())));
+		return iplBowlingList;
+	}
+	
 
 	/**
-	 * @param csvFilePath check for exception and retrieve the information from csv
+	 * @param csvFilePath check for exception and retrieve the batting information from csv
 	 *                    file
 	 * @throws CSVException
 	 */
@@ -134,7 +152,7 @@ public class IPLAnalyser
 	}
 
 	/**
-	 * @param csvFilePath check for exception and retrieve the information from csv
+	 * @param csvFilePath check for exception and retrieve the bowling information from csv
 	 *                    file
 	 * @throws CSVException
 	 */
@@ -144,6 +162,8 @@ public class IPLAnalyser
 		if (iplBowlingList == null || iplBowlingList.isEmpty())
 			throw new CSVException("No Census data found", CSVException.ExceptionType.NO_CENSUS_DATA);
 	}
+
+
 
 	
 
