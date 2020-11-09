@@ -20,17 +20,32 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturn_HighestBattingAveragePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnHighestBattingAveragePerson() throws CSVException
 	{
 		List<IPLBatting> highestBattingAvg = iplAnalyser.sortByBattingAverageDescending(IPL_BATTING_CSV_FILE_PATH);
 		assertEquals("MS Dhoni", highestBattingAvg.get(0).getPlayer());
 	}
-	
+
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturn_HighestBattingStrikeRatePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnHighestBattingStrikeRatePerson() throws CSVException
 	{
-		List<IPLBatting> highestBattingAvg = iplAnalyser.sortByBattingStrikeRateDescending(IPL_BATTING_CSV_FILE_PATH);
-		assertEquals("Ishant Sharma", highestBattingAvg.get(0).getPlayer());
+		List<IPLBatting> highestBattingStrikeRate = iplAnalyser
+				.sortByBattingStrikeRateDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("Ishant Sharma", highestBattingStrikeRate.get(0).getPlayer());
+	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumSixHittingPerson() throws CSVException
+	{
+		List<IPLBatting> maximumSixes = iplAnalyser.sortByMaximumSixesDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("Andre Russell", maximumSixes.get(0).getPlayer());
+	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumFoursHittingPerson() throws CSVException
+	{
+		List<IPLBatting> maximumFours = iplAnalyser.sortByMaximumFoursDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("Shikhar Dhawan", maximumFours.get(0).getPlayer());
 	}
 
 }

@@ -59,6 +59,16 @@ public class IPLBatting
 		}
 	}
 
+	public int getSixes()
+	{
+			return sixes;
+	}
+	
+	public int getFours()
+	{
+			return fours;
+	}
+	
 	public String getPlayer()
 	{
 		return player;
