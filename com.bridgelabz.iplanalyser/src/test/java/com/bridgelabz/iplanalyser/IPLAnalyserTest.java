@@ -10,7 +10,7 @@ import org.junit.Test;
 public class IPLAnalyserTest
 {
 
-	private static final String IPL_BATTING_CSV_FILE_PATH = "E:\\Experiments\\IplLeagueAnalysis\\src\\test\\resources\\IPL2019FactsheetMostRuns.csv";
+	private static final String IPL_BATTING_CSV_FILE_PATH = "src/test/resources/IPL2019FactsheetMostRuns.csv";
 	IPLAnalyser iplAnalyser;
 
 	@Before

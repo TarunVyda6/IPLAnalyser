@@ -9,6 +9,7 @@ public class IPLAnalyser
 {
 
 	private List<IPLBatting> iplBattingList;
+	private List<IPLBowling> iplBowlingList;
 	private CsvFileLoader csvFileLoader;
 
 	public IPLAnalyser()
@@ -112,6 +113,13 @@ public class IPLAnalyser
 		Collections.reverse(iplBattingList);
 		return iplBattingList;
 	}
+	
+	public List<IPLBowling> sortByBowlingAverage(String iplBowlingCsvFilePath) throws CSVException
+	{
+		checkingForExceptionsAndFetchingBowlingData(iplBowlingCsvFilePath);
+		Collections.sort(iplBowlingList, Comparator.comparing(bowling ->  Double.parseDouble(bowling.getAverage())));
+		return iplBowlingList;
+	}
 
 	/**
 	 * @param csvFilePath check for exception and retrieve the information from csv
@@ -124,5 +132,19 @@ public class IPLAnalyser
 		if (iplBattingList == null || iplBattingList.isEmpty())
 			throw new CSVException("No Census data found", CSVException.ExceptionType.NO_CENSUS_DATA);
 	}
+
+	/**
+	 * @param csvFilePath check for exception and retrieve the information from csv
+	 *                    file
+	 * @throws CSVException
+	 */
+	private void checkingForExceptionsAndFetchingBowlingData(String csvFilePath) throws CSVException
+	{
+		iplBowlingList = csvFileLoader.loadBowlingStats(csvFilePath);
+		if (iplBowlingList == null || iplBowlingList.isEmpty())
+			throw new CSVException("No Census data found", CSVException.ExceptionType.NO_CENSUS_DATA);
+	}
+
+	
 
 }
