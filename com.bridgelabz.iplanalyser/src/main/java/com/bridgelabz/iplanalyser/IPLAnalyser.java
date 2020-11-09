@@ -101,6 +101,19 @@ public class IPLAnalyser
 	}
 
 	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on best average with maximum runs in sorted
+	 *         descending order
+	 * @throws CSVException
+	 */
+	public List<IPLBatting> sortByBestAverageAndMaximumRunsDescending(String iplBattingCsvFilePath) throws CSVException
+	{
+		sortByBattingAverageDescending(iplBattingCsvFilePath).sort(Comparator.comparing(batting -> batting.getRuns()));
+		Collections.reverse(iplBattingList);
+		return iplBattingList;
+	}
+
+	/**
 	 * @param csvFilePath check for exception and retrieve the information from csv
 	 *                    file
 	 * @throws CSVException

@@ -69,6 +69,10 @@ public class IPLBatting
 			return fours;
 	}
 	
+	public int getRuns()
+	{
+		return runs;
+	}
 	public String getPlayer()
 	{
 		return player;

@@ -60,8 +60,16 @@ public class IPLAnalyserTest
 	@Test
 	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWithBestStrikeRateAndAverage() throws CSVException
 	{
-		List<IPLBatting> BestStrikeRateAndAverage = iplAnalyser
+		List<IPLBatting> bestStrikeRateAndAverage = iplAnalyser
 				.sortByBestStrikeRateAndAverageDescending(IPL_BATTING_CSV_FILE_PATH);
-		assertEquals("MS Dhoni", BestStrikeRateAndAverage.get(0).getPlayer());
+		assertEquals("MS Dhoni", bestStrikeRateAndAverage.get(0).getPlayer());
+	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWithBestAverageAndMaximumRuns() throws CSVException
+	{
+		List<IPLBatting> bestAverageAndMaximumRuns = iplAnalyser
+				.sortByBestAverageAndMaximumRunsDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("David Warner", bestAverageAndMaximumRuns.get(0).getPlayer());
 	}
 }
