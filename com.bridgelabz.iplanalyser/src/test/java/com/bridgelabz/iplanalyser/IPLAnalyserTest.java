@@ -47,5 +47,12 @@ public class IPLAnalyserTest
 		List<IPLBatting> maximumFours = iplAnalyser.sortByMaximumFoursDescending(IPL_BATTING_CSV_FILE_PATH);
 		assertEquals("Shikhar Dhawan", maximumFours.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumSixesAndFoursHittingPersonWithBestStrikeRate() throws CSVException
+	{
+		List<IPLBatting> maximumFoursAndSixWithBestSR = iplAnalyser.sortByMaximumSixesAndFoursWithBestStrikeRateDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("Andre Russell", maximumFoursAndSixWithBestSR.get(0).getPlayer());
+	}
 
 }

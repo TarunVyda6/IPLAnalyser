@@ -63,6 +63,17 @@ public class IPLAnalyser
 		return iplBattingList;
 	}
 
+	public List<IPLBatting> sortByMaximumSixesAndFoursWithBestStrikeRateDescending(String iplBattingCsvFilePath)
+			throws CSVException
+	{
+
+		checkingForExceptionsAndFetchingData(iplBattingCsvFilePath);
+		Collections.sort(iplBattingList,
+				Comparator.comparing(batting -> batting.getFours() * 4 + batting.getSixes() * 6));
+		Collections.reverse(iplBattingList);
+		return iplBattingList;
+	}
+
 	/**
 	 * @param csvFilePath check for exception and retrieve the information from csv
 	 *                    file
