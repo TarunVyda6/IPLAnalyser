@@ -55,6 +55,11 @@ public class IPLAnalyser
 		return iplBattingList;
 	}
 
+	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on fours in sorted descending order
+	 * @throws CSVException
+	 */
 	public List<IPLBatting> sortByMaximumFoursDescending(String iplBattingCsvFilePath) throws CSVException
 	{
 		checkingForExceptionsAndFetchingData(iplBattingCsvFilePath);
@@ -63,6 +68,12 @@ public class IPLAnalyser
 		return iplBattingList;
 	}
 
+	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on maximum sixes and fours with best strike rate
+	 *         in sorted descending order
+	 * @throws CSVException
+	 */
 	public List<IPLBatting> sortByMaximumSixesAndFoursWithBestStrikeRateDescending(String iplBattingCsvFilePath)
 			throws CSVException
 	{
@@ -70,6 +81,21 @@ public class IPLAnalyser
 		checkingForExceptionsAndFetchingData(iplBattingCsvFilePath);
 		Collections.sort(iplBattingList,
 				Comparator.comparing(batting -> batting.getFours() * 4 + batting.getSixes() * 6));
+		Collections.reverse(iplBattingList);
+		return iplBattingList;
+	}
+
+	/**
+	 * @param iplBattingCsvFilePath
+	 * @return players data based on best strike rate and average in sorted
+	 *         descending order
+	 * @throws CSVException
+	 */
+	public List<IPLBatting> sortByBestStrikeRateAndAverageDescending(String iplBattingCsvFilePath) throws CSVException
+	{
+		checkingForExceptionsAndFetchingData(iplBattingCsvFilePath);
+		sortByBattingStrikeRateDescending(iplBattingCsvFilePath)
+				.sort(Comparator.comparing(batting -> Double.parseDouble(batting.getAverage())));
 		Collections.reverse(iplBattingList);
 		return iplBattingList;
 	}
