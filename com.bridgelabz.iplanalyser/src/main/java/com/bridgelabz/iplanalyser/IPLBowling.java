@@ -77,7 +77,6 @@ public class IPLBowling
 		try
 		{
 			Double.parseDouble(average);
-			
 		}
 		catch (NumberFormatException e)
 		{
@@ -112,6 +111,11 @@ public class IPLBowling
 	public int getFiveWickets()
 	{
 		return fiveWickets;
+	}
+
+	public int getFourAndFiveWickets()
+	{
+		return fourWickets * 4 + fiveWickets * 5;
 	}
 
 	@Override

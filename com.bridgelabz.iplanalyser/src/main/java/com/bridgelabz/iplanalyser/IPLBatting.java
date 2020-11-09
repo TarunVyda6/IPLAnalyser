@@ -24,7 +24,7 @@ public class IPLBatting
 	@CsvBindByName(column = "BF")
 	private int ballFaced;
 	@CsvBindByName(column = "SR")
-	private String strikeRate;
+	private double strikeRate;
 	@CsvBindByName(column = "100")
 	private int century;
 	@CsvBindByName(column = "50")
@@ -47,32 +47,26 @@ public class IPLBatting
 		}
 	}
 
-	public String getStrikeRate()
+	public double getStrikeRate()
 	{
-		try
-		{
-			return strikeRate;
-		}
-		catch (NumberFormatException e)
-		{
-			return "0";
-		}
+		return strikeRate;
 	}
 
 	public int getSixes()
 	{
-			return sixes;
+		return sixes;
 	}
-	
+
 	public int getFours()
 	{
-			return fours;
+		return fours;
 	}
-	
+
 	public int getRuns()
 	{
 		return runs;
 	}
+
 	public String getPlayer()
 	{
 		return player;
