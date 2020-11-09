@@ -25,5 +25,12 @@ public class IPLAnalyserTest
 		List<IPLBatting> highestBattingAvg = iplAnalyser.sortByBattingAverageDescending(IPL_BATTING_CSV_FILE_PATH);
 		assertEquals("MS Dhoni", highestBattingAvg.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturn_HighestBattingStrikeRatePerson() throws CSVException
+	{
+		List<IPLBatting> highestBattingAvg = iplAnalyser.sortByBattingStrikeRateDescending(IPL_BATTING_CSV_FILE_PATH);
+		assertEquals("Ishant Sharma", highestBattingAvg.get(0).getPlayer());
+	}
 
 }
