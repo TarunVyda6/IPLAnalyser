@@ -31,4 +31,12 @@ public class IPLAllRounderAnalyserTest
 		assertEquals("Andre Russell", sortedAllrounderList.get(0).getPlayer());
 	}
 
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasScoredMostRunsAndTookMostWickets() throws CSVException
+	{
+		sortedAllrounderList = iplAnalyser.sortAllrounderData(IPL_BATTING_CSV_FILE_PATH, IPL_BOWLING_CSV_FILE_PATH,
+				SortingComparators.BEST_ALLROUNDER);
+		assertEquals("Hardik Pandya", sortedAllrounderList.get(0).getPlayer());
+	}
+
 }

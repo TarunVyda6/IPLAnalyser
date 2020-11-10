@@ -35,4 +35,7 @@ public class SortingComparators
 	/* All-rounder data sorting comparators */
 	public static final Comparator<IPLAllRounder> BEST_BATTING_AND_BOWLING_AVG = Comparator
 			.comparing(IPLAllRounder::getPerformanceByAverage).reversed();
+	public static final Comparator<IPLAllRounder> BEST_ALLROUNDER = Comparator
+			.comparing(IPLAllRounder::getPerformanceByRunsAndWickets).reversed();
+
 }
