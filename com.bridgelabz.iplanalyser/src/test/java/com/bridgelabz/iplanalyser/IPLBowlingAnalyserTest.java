@@ -44,4 +44,12 @@ public class IPLBowlingAnalyserTest
 				IPLBowling.class);
 		assertEquals("Shivam Dube", sortedBowlingList.get(0).getPlayer());
 	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnBestStrikeRateWith5WicketsAnd4WicketsPerson() throws CSVException
+	{
+		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH, SortingComparators.BEST_SR_WITH_5W4W,
+				IPLBowling.class);
+		assertEquals("Kagiso Rabada", sortedBowlingList.get(0).getPlayer());
+	}
 }

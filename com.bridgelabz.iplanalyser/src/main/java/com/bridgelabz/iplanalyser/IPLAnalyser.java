@@ -18,6 +18,14 @@ public class IPLAnalyser
 		csvFileLoader = new CsvFileLoader();
 	}
 
+	/**
+	 * @param <E>
+	 * @param csvFilePath
+	 * @param comparator
+	 * @param csvClass
+	 * @return list of ipl data from csv file according to our requirements
+	 * @throws CSVException
+	 */
 	public <E> List<E> sortData(String csvFilePath, Comparator comparator, Class<E> csvClass) throws CSVException
 	{
 		List<E> iplList = csvFileLoader.loadStats(csvFilePath, csvClass);
