@@ -31,4 +31,20 @@ public class IPLAnalyser
 		List<E> iplList = csvFileLoader.loadStats(csvFilePath, csvClass);
 		return (List<E>) iplList.stream().sorted(comparator).collect(Collectors.toList());
 	}
+
+	/**
+	 * @param batsmanFilePath
+	 * @param bowlerFilePath
+	 * @param comparator
+	 * @return all-rounders data by taking batting and bowling data
+	 * @throws CSVException
+	 */
+	public List<IPLAllRounder> sortAllrounderData(String batsmanFilePath, String bowlerFilePath,
+			Comparator<IPLAllRounder> comparator) throws CSVException
+	{
+
+		List<IPLAllRounder> iplAllRounderList = csvFileLoader.loadStats(batsmanFilePath, bowlerFilePath);
+		return iplAllRounderList.stream().sorted(comparator).collect(Collectors.toList());
+	}
+
 }

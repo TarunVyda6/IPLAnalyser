@@ -31,4 +31,8 @@ public class SortingComparators
 			.thenComparing(BEST_BOWLING_AVG);
 	public static final Comparator<IPLBowling> MAX_WKTS_WITH_BEST_BOWLING_AVG = Comparator
 			.comparing(IPLBowling::getWickets).reversed().thenComparing(BEST_BOWLING_AVG);
+
+	/* All-rounder data sorting comparators */
+	public static final Comparator<IPLAllRounder> BEST_BATTING_AND_BOWLING_AVG = Comparator
+			.comparing(IPLAllRounder::getPerformanceByAverage).reversed();
 }
