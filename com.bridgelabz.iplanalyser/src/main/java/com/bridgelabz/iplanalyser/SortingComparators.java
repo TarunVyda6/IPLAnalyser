@@ -18,6 +18,8 @@ public class SortingComparators
 			.thenComparing(Comparator.comparing(IPLBatting::getStrikeRate)).reversed();
 	public static final Comparator<Object> BEST_AVG_WITH_BEST_SR = BEST_BATTING_AVG
 			.thenComparing(Comparator.comparing(b -> ((IPLBatting) b).getStrikeRate()));
+	public static final Comparator<IPLBatting> MOST_HUNDREDS_WITH_BEST_AVG = Comparator
+			.comparing(IPLBatting::getCentury).reversed().thenComparing(BEST_BATTING_AVG);
 
 	/* Bowling data sorting comparators */
 	public static final Comparator<IPLBowling> BEST_BOWLING_AVG = Comparator

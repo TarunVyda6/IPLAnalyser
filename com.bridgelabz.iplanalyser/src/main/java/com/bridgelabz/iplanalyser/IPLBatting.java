@@ -72,6 +72,11 @@ public class IPLBatting
 		return player;
 	}
 
+	public int getCentury()
+	{
+		return century;
+	}
+
 	@Override
 	public String toString()
 	{
