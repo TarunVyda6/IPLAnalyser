@@ -11,7 +11,7 @@ public class IPLAllRounder
 
 	public IPLAllRounder(String player, int runs, int wickets, String battingAverage, String bowlingAverage)
 	{
-		this.player = player;
+		this.player = player;    
 		this.runs = runs;
 		this.wickets = wickets;
 		this.battingAverage = battingAverage;
