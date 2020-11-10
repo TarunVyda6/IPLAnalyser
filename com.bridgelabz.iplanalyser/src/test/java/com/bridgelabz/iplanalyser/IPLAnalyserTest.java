@@ -86,4 +86,13 @@ public class IPLAnalyserTest
 				SortingComparators.MOST_HUNDREDS_WITH_BEST_AVG, IPLBatting.class);
 		assertEquals("David Warner", sortedBattingList.get(0).getPlayer());
 	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestAverageButNoCenturyOrHalfCentury()
+			throws CSVException
+	{
+		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH,
+				SortingComparators.BEST_AVG_WITH_ZERO_100s_50s, IPLBatting.class);
+		assertEquals("Marcus Stoinis", sortedBattingList.get(0).getPlayer());
+	}
 }

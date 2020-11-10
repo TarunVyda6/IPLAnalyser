@@ -20,6 +20,11 @@ public class SortingComparators
 			.thenComparing(Comparator.comparing(b -> ((IPLBatting) b).getStrikeRate()));
 	public static final Comparator<IPLBatting> MOST_HUNDREDS_WITH_BEST_AVG = Comparator
 			.comparing(IPLBatting::getCentury).reversed().thenComparing(BEST_BATTING_AVG);
+	public static final Comparator<Object> BEST_AVG_WITH_ZERO_100s_50s = Comparator.comparing(b -> {
+		if (((IPLBatting) b).getCentury() + ((IPLBatting) b).getHalfCentury() == 0)
+			return Double.parseDouble(((IPLBatting) b).getAverage());
+		else return 0.0;
+	}).reversed();
 
 	/* Bowling data sorting comparators */
 	public static final Comparator<IPLBowling> BEST_BOWLING_AVG = Comparator
