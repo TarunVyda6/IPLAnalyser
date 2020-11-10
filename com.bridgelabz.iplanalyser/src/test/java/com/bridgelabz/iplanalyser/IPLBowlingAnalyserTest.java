@@ -22,7 +22,7 @@ public class IPLBowlingAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingAveragePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestBowlingAverage() throws CSVException
 	{
 		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH, SortingComparators.BEST_BOWLING_AVG,
 				IPLBowling.class);
@@ -30,7 +30,7 @@ public class IPLBowlingAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingStrikeRatePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestBowlingStrikeRate() throws CSVException
 	{
 		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH, SortingComparators.BEST_BOWLING_SR,
 				IPLBowling.class);
@@ -38,7 +38,7 @@ public class IPLBowlingAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnBestBowlingEconomyPerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestBowlingEconomy() throws CSVException
 	{
 		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH, SortingComparators.BEST_ECONOMY_BOWLER,
 				IPLBowling.class);
@@ -46,7 +46,8 @@ public class IPLBowlingAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnBestStrikeRateWith5WicketsAnd4WicketsPerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestStrikeRateWith5WicketsAnd4Wickets()
+			throws CSVException
 	{
 		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH, SortingComparators.BEST_SR_WITH_5W4W,
 				IPLBowling.class);
@@ -54,10 +55,20 @@ public class IPLBowlingAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnBestStrikeRateWithBestBowlingAveragePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestStrikeRateWithBestBowlingAverage()
+			throws CSVException
 	{
 		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH,
 				SortingComparators.BEST_BOWLING_AVG_WITH_BEST_SR, IPLBowling.class);
 		assertEquals("Alzarri Joseph", sortedBowlingList.get(0).getPlayer());
+	}
+
+	@Test
+	public void givenIPLData_WhenAnalyse_ShouldReturn_PersonWhoTookMaximumWicketsWithBestBowlingAverage()
+			throws CSVException
+	{
+		sortedBowlingList = iplAnalyser.sortData(IPL_BOWLING_CSV_FILE_PATH,
+				SortingComparators.MAX_WKTS_WITH_BEST_BOWLING_AVG, IPLBowling.class);
+		assertEquals("Imran Tahir", sortedBowlingList.get(0).getPlayer());
 	}
 }

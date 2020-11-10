@@ -12,11 +12,11 @@ public class SortingComparators
 	public static final Comparator<IPLBatting> MOST_FOURS = Comparator.comparing(IPLBatting::getFours).reversed();
 	public static final Comparator<Object> MOST_BOUNDARY_RUN_SCORER = Comparator
 			.comparing(b -> (((IPLBatting) b).getSixes() * 6 + ((IPLBatting) b).getFours() * 4)).reversed();
-	public static final  Comparator<Object> MAX_SR_WITH_MOST_6s4s = MOST_BOUNDARY_RUN_SCORER
+	public static final Comparator<Object> MAX_SR_WITH_MOST_6s4s = MOST_BOUNDARY_RUN_SCORER
 			.thenComparing(Comparator.comparing(b -> ((IPLBatting) b).getStrikeRate()));
 	public static final Comparator<IPLBatting> MAX_RUNS_BEST_SR = Comparator.comparing(IPLBatting::getRuns)
 			.thenComparing(Comparator.comparing(IPLBatting::getStrikeRate)).reversed();
-	public static final  Comparator<Object> BEST_AVG_WITH_BEST_SR = BEST_BATTING_AVG
+	public static final Comparator<Object> BEST_AVG_WITH_BEST_SR = BEST_BATTING_AVG
 			.thenComparing(Comparator.comparing(b -> ((IPLBatting) b).getStrikeRate()));
 
 	/* Bowling data sorting comparators */
@@ -29,4 +29,6 @@ public class SortingComparators
 			.comparing(IPLBowling::getFourAndFiveWickets).reversed().thenComparing(BEST_BOWLING_SR);
 	public static final Comparator<IPLBowling> BEST_BOWLING_AVG_WITH_BEST_SR = BEST_BOWLING_SR
 			.thenComparing(BEST_BOWLING_AVG);
+	public static final Comparator<IPLBowling> MAX_WKTS_WITH_BEST_BOWLING_AVG = Comparator
+			.comparing(IPLBowling::getWickets).reversed().thenComparing(BEST_BOWLING_AVG);
 }

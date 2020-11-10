@@ -23,7 +23,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnHighestBattingAveragePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasHighestBattingAverage() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.BEST_BATTING_AVG,
 				IPLBatting.class);
@@ -31,7 +31,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnHighestBattingStrikeRatePerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasHighestBattingStrikeRate() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.BEST_SR,
 				IPLBatting.class);
@@ -39,7 +39,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumSixHittingPerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasMaximumSix() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.MOST_SIXES,
 				IPLBatting.class);
@@ -47,7 +47,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumFoursHittingPerson() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasMaximumFours() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.MOST_FOURS,
 				IPLBatting.class);
@@ -55,7 +55,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnMaximumSixesAndFoursHittingPersonWithBestStrikeRate()
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasMaximumSixesAndFoursWithBestStrikeRate()
 			throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.MAX_SR_WITH_MOST_6s4s,
@@ -64,7 +64,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWithBestStrikeRateAndAverage() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestStrikeRateAndAverage() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.BEST_AVG_WITH_BEST_SR,
 				IPLBatting.class);
@@ -72,7 +72,7 @@ public class IPLAnalyserTest
 	}
 
 	@Test
-	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWithBestAverageAndMaximumRuns() throws CSVException
+	public void givenIPLData_WhenAnalyse_ShouldReturnPersonWhoHasBestAverageAndMaximumRuns() throws CSVException
 	{
 		sortedBattingList = iplAnalyser.sortData(IPL_BATTING_CSV_FILE_PATH, SortingComparators.MAX_RUNS_BEST_SR,
 				IPLBatting.class);
